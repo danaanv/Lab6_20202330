@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de hospitales</title>
+    <div th:insert="~{fragments/general.html :: estilo}"></div>
+</head>
+<body>
+<div class="container">
+    <div th:insert="~{fragments/general.html :: header}"></div>
+    <h1>Lista de estudiantes</h1>
+    <div th:if="${msg != null}" th:text="${msg}" class="alert alert-success" role="alert"></div>
+    <a type="button" class="btn btn-primary" th:href="@{crearEstudiante}">Nuevo estudiante</a>
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Nombres</th>
+            <th scope="col">Apellidos</th>
+            <th scope="col">Dni</th>
+            <th scope="col">Edad</th>
+            <th scope="col"></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="estudiante, a : ${estudiantes}">
+            <th scope="row" th:text="${a.index+1}">1</th>
+            <td th:text="${estudiante.nombres}">Mark</td>
+            <td th:text="${estudiante.apellidos}">Mark</td>
+            <td th:text="${estudiante.dni}">Mark</td>
+            <td th:text="${estudiante.edad}">Mark</td>
+            <td><a type="button" class="btn btn-primary" th:href="@{'editarEstudiante'+'?id='+${estudiante.id}}">Editar</a></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
