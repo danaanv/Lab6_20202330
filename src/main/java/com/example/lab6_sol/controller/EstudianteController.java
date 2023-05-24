@@ -58,9 +58,10 @@ public class EstudianteController {
         }
     }
 
-    /*@GetMapping("/cursos")
-    public String verCursos(Model model){
-        return
-    }*/
+    @PostMapping("/registrarcurso")
+    public String registrar(@RequestParam("id")int id){
+
+        return "redirect:/curso/lista";
+    }
 
 }

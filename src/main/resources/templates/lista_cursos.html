@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Lista de hospitales</title>
@@ -22,7 +22,7 @@
             <th scope="row" th:text="${a.index+1}">1</th>
             <td th:text="${curso.nombre}">Mark</td>
             <td th:text="${curso.profesor.nombres+' '+ curso.profesor.apellidos}">Mark</td>
-            <td><a type="button" class="btn btn-primary">Registrarme</a></td>
+            <td><a type="button" class="btn btn-primary" th:href="@{'registrarcurso' + '?id=' + ${curso.id}}">Registrarme</a></td>
         </tr>
         </tbody>
     </table>
